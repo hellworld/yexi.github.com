@@ -3,11 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>git学习笔记 | Yx&#39;s Note</title>
+  <title>MarkDown语法小记 | Yx&#39;s Note</title>
   <meta name="author" content="Yx">
   
-  <meta name="description" content="整理一下git常用命令
-git在线学习
+  <meta name="description" content="分段： 两个回车
+换行： 连个回车+空格
+标题： #~##### 代表1~6级标题
+引用 &gt;
+代码区块： 四个空格开头
+链接 []{http://}
+图片 ![](http://)
+
 1
 2
 3
@@ -18,20 +24,13 @@ git在线学习
 8
 9
 10
-11
-12
-13
-14
-15
-git config --golbal user.name &quot;&quot;   
-git config --golbal email.name &quot;&quot;  
-git init  初始化  
-git ad">
+**冒泡排序:**  
+for(int i=0;i&lt;arr.l">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="git学习笔记"/>
+  <meta property="og:title" content="MarkDown语法小记"/>
   <meta property="og:site_name" content="Yx&#39;s Note"/>
 
   
@@ -69,18 +68,25 @@ git ad">
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-03-09T13:27:57.000Z"><a href="/2014/03/09/git学习笔记/">3月 9 2014</a></time>
+        <time datetime="2014-03-14T15:12:57.000Z"><a href="/2014/03/14/MarkDown语法小记/">3月 14 2014</a></time>
       
       
   
-    <h1 class="title">git学习笔记</h1>
+    <h1 class="title">MarkDown语法小记</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="-git-">整理一下git常用命令</h2>
-<p><a href="http://www.codeschool.com/courses/try-git" target="_blank">git在线学习</a></p>
+        <ol>
+<li>分段： 两个回车</li>
+<li>换行： 连个回车+空格</li>
+<li>标题： #~##### 代表1~6级标题</li>
+<li>引用 &gt;</li>
+<li>代码区块： 四个空格开头</li>
+<li>链接 []{http://}</li>
+<li>图片 ![](http://)</li>
+</ol>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -91,26 +97,16 @@ git ad">
 8
 9
 10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre>git config <span class="subst">--</span>golbal user<span class="built_in">.</span>name <span class="string">""</span>   
-git config <span class="subst">--</span>golbal email<span class="built_in">.</span>name <span class="string">""</span>  
-git init  初始化  
-git add <span class="built_in">.</span> 添加当前目录的所有内容  
-git status  查看状态  
-git commit <span class="attribute">-m</span> <span class="string">""</span>  添加commit  
-git commit <span class="attribute">-a</span> <span class="attribute">-m</span> <span class="string">""</span>  
-git rm   
-git commit <span class="attribute">-m</span> <span class="string">"delete "</span>  
-git mv   
-git commit <span class="attribute">-m</span> hellogit<span class="built_in">.</span>rb helloworld<span class="built_in">.</span>rb  
-git push <span class="attribute">-u</span> origin master  
-git pull origin master  
-git diff 版本对比  
-git <span class="keyword">log</span> 查看历史记录
+</pre></td><td class="code"><pre>**冒泡排序:**  
+<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.<span class="built_in">length</span>-<span class="number">1</span>;i++){
+	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;arr.<span class="built_in">length</span>-<span class="number">1</span>-i;j++){
+		<span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>]){
+			<span class="keyword">int</span> temp = arr[j];
+			arr[j] = arr[j+<span class="number">1</span>];
+			arr[j+<span class="number">1</span>] = temp;
+		}
+	}
+}
 </pre></td></tr></table></figure>
 
 

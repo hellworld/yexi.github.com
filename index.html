@@ -48,6 +48,69 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-03-14T15:12:57.000Z"><a href="/2014/03/14/MarkDown语法小记/">3月 14 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/03/14/MarkDown语法小记/">MarkDown语法小记</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ol>
+<li>分段： 两个回车</li>
+<li>换行： 连个回车+空格</li>
+<li>标题： #~##### 代表1~6级标题</li>
+<li>引用 &gt;</li>
+<li>代码区块： 四个空格开头</li>
+<li>链接 []{http://}</li>
+<li>图片 ![](http://)</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre>**冒泡排序:**  
+<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.<span class="built_in">length</span>-<span class="number">1</span>;i++){
+	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;arr.<span class="built_in">length</span>-<span class="number">1</span>-i;j++){
+		<span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>]){
+			<span class="keyword">int</span> temp = arr[j];
+			arr[j] = arr[j+<span class="number">1</span>];
+			arr[j+<span class="number">1</span>] = temp;
+		}
+	}
+}
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-03-09T13:27:57.000Z"><a href="/2014/03/09/git学习笔记/">3月 9 2014</a></time>
       
       
@@ -60,22 +123,39 @@
       
         <h2 id="-git-">整理一下git常用命令</h2>
 <p><a href="http://www.codeschool.com/courses/try-git" target="_blank">git在线学习</a></p>
-<pre><code>git config --golbal user.name &quot;&quot;   
-git config --golbal email.name &quot;&quot;  
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre>git config <span class="subst">--</span>golbal user<span class="built_in">.</span>name <span class="string">""</span>   
+git config <span class="subst">--</span>golbal email<span class="built_in">.</span>name <span class="string">""</span>  
 git init  初始化  
-git add . 添加当前目录的所有内容  
+git add <span class="built_in">.</span> 添加当前目录的所有内容  
 git status  查看状态  
-git commit -m &quot;&quot;  添加commit  
-git commit -a -m &quot;&quot;  
+git commit <span class="attribute">-m</span> <span class="string">""</span>  添加commit  
+git commit <span class="attribute">-a</span> <span class="attribute">-m</span> <span class="string">""</span>  
 git rm   
-git commit -m &quot;delete &quot;  
+git commit <span class="attribute">-m</span> <span class="string">"delete "</span>  
 git mv   
-git commit -m hellogit.rb helloworld.rb  
-git push -u origin master  
+git commit <span class="attribute">-m</span> hellogit<span class="built_in">.</span>rb helloworld<span class="built_in">.</span>rb  
+git push <span class="attribute">-u</span> origin master  
 git pull origin master  
 git diff 版本对比  
-git log 查看历史记录
-</code></pre>
+git <span class="keyword">log</span> 查看历史记录
+</pre></td></tr></table></figure>
+
+
       
     </div>
     <footer>
