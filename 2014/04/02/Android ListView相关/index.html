@@ -3,21 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>MarkDown语法小记 | Yx&#39;s Note</title>
+  <title>Android ListView相关 | Yx&#39;s Note</title>
   <meta name="author" content="Yx">
   
-  <meta name="description" content="分段： 两个回车
-换行： 连个回车+空格
-标题： #~##### 代表1~6级标题
-引用: &gt;
-代码区块： 四个空格开头
-链接: []{http://}
-图片: ![](http://)">
+  <meta name="description" content="ScrollView中的ListView事件冲突解决办法
+@Override
+public boolean dispatchTouchEvent(MotionEvent ev) {
+    if(ev.getAction() == MotionEvent.ACTION_MOVE){
+        ">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="MarkDown语法小记"/>
+  <meta property="og:title" content="Android ListView相关"/>
   <meta property="og:site_name" content="Yx&#39;s Note"/>
 
   
@@ -55,50 +53,49 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-03-14T15:12:57.000Z"><a href="/2014/03/14/MarkDown语法小记/">3月 14 2014</a></time>
+        <time datetime="2014-04-02T14:42:57.000Z"><a href="/2014/04/02/Android ListView相关/">4月 2 2014</a></time>
       
       
   
-    <h1 class="title">MarkDown语法小记</h1>
+    <h1 class="title">Android ListView相关</h1>
   
 
     </header>
     <div class="entry">
       
-        <ol>
-<li>分段： 两个回车</li>
-<li>换行： 连个回车+空格</li>
-<li>标题： #~##### 代表1~6级标题</li>
-<li>引用: &gt;</li>
-<li>代码区块： 四个空格开头</li>
-<li>链接: []{http://}</li>
-<li>图片: ![](http://)</li>
-</ol>
-<a id="more"></a>
+        <p>ScrollView中的ListView事件冲突解决办法</p>
+<pre><code>@Override
+public boolean dispatchTouchEvent(MotionEvent ev) {
+    if(ev.getAction() == MotionEvent.ACTION_MOVE){
+        mListView.dispatchTouchEvent(ev);
+    }
+    return super.dispatchTouchEvent(ev);
 
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="code"><pre>**冒泡排序:**  
-<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.<span class="built_in">length</span>-<span class="number">1</span>;i++){
-	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;arr.<span class="built_in">length</span>-<span class="number">1</span>-i;j++){
-		<span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>]){
-			<span class="keyword">int</span> temp = arr[j];
-			arr[j] = arr[j+<span class="number">1</span>];
-			arr[j+<span class="number">1</span>] = temp;
-		}
-	}
 }
-</pre></td></tr></table></figure>
+</code></pre><p>ListView 优化</p>
+<pre><code>public View getView(int position, View convertView, ViewGroup parent) {
+ViewHolder holder;
 
+if (convertView == null) {
+    convertView = mInflater.inflate(R.layout.your_layout, null);
 
+    holder = new ViewHolder();
+    holder.text = (TextView) convertView.findViewById(R.id.text);
+
+    convertView.setTag(holder);
+} else {
+    holder = convertView.getTag();
+}
+
+holder.text.setText(&quot;Position &quot; + position);
+
+return convertView;
+}
+
+private static class ViewHolder {
+      public TextView text;
+}
+</code></pre>
       
     </div>
     <footer>

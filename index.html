@@ -48,6 +48,70 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-04-02T14:42:57.000Z"><a href="/2014/04/02/Android ListView相关/">4月 2 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/04/02/Android ListView相关/">Android ListView相关</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>ScrollView中的ListView事件冲突解决办法</p>
+<pre><code>@Override
+public boolean dispatchTouchEvent(MotionEvent ev) {
+    if(ev.getAction() == MotionEvent.ACTION_MOVE){
+        mListView.dispatchTouchEvent(ev);
+    }
+    return super.dispatchTouchEvent(ev);
+
+}
+</code></pre><p>ListView 优化</p>
+<pre><code>public View getView(int position, View convertView, ViewGroup parent) {
+ViewHolder holder;
+
+if (convertView == null) {
+    convertView = mInflater.inflate(R.layout.your_layout, null);
+
+    holder = new ViewHolder();
+    holder.text = (TextView) convertView.findViewById(R.id.text);
+
+    convertView.setTag(holder);
+} else {
+    holder = convertView.getTag();
+}
+
+holder.text.setText(&quot;Position &quot; + position);
+
+return convertView;
+}
+
+private static class ViewHolder {
+      public TextView text;
+}
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-03-14T15:12:57.000Z"><a href="/2014/03/14/MarkDown语法小记/">3月 14 2014</a></time>
       
       
@@ -62,10 +126,10 @@
 <li>分段： 两个回车</li>
 <li>换行： 连个回车+空格</li>
 <li>标题： #~##### 代表1~6级标题</li>
-<li>引用 &gt;</li>
+<li>引用: &gt;</li>
 <li>代码区块： 四个空格开头</li>
-<li>链接 []{http://}</li>
-<li>图片 ![](http://)</li>
+<li>链接: []{http://}</li>
+<li>图片: ![](http://)</li>
 </ol>
 
       
