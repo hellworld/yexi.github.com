@@ -10,7 +10,11 @@
 @Override
 public boolean dispatchTouchEvent(MotionEvent ev) {
     if(ev.getAction() == MotionEvent.ACTION_MOVE){
-        ">
+        mListView.dispatchTouchEvent(ev);
+    }
+    return super.dispatchTouchEvent(ev);
+
+}">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -72,7 +76,9 @@ public boolean dispatchTouchEvent(MotionEvent ev) {
     return super.dispatchTouchEvent(ev);
 
 }
-</code></pre><p>ListView 优化</p>
+</code></pre><a id="more"></a>    
+
+<p>ListView 优化</p>
 <pre><code>public View getView(int position, View convertView, ViewGroup parent) {
 ViewHolder holder;
 

@@ -67,34 +67,15 @@ public boolean dispatchTouchEvent(MotionEvent ev) {
     return super.dispatchTouchEvent(ev);
 
 }
-</code></pre><p>ListView 优化</p>
-<pre><code>public View getView(int position, View convertView, ViewGroup parent) {
-ViewHolder holder;
-
-if (convertView == null) {
-    convertView = mInflater.inflate(R.layout.your_layout, null);
-
-    holder = new ViewHolder();
-    holder.text = (TextView) convertView.findViewById(R.id.text);
-
-    convertView.setTag(holder);
-} else {
-    holder = convertView.getTag();
-}
-
-holder.text.setText(&quot;Position &quot; + position);
-
-return convertView;
-}
-
-private static class ViewHolder {
-      public TextView text;
-}
 </code></pre>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2014/04/02/Android ListView相关/#more" class="more-link">Read More</a>
+          </div>
         
         
       
