@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android color相关 | Yx&#39;s Note</title>
+  <meta name="author" content="Yx">
+  
+  <meta name="description" content="Android中使用4个数字来表示颜色，分别是alpha,red,green,blue四个颜色值（ARGB）。每个数值取值0-255，因此一个颜色可以用一个整数来表示。红绿蓝三个值代表了颜色的取值，而alpha代表透明度，0表示颜色完全透明，而此时的RGB是什么取值都不重要了，255表示颜色完全不透明。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Android color相关"/>
+  <meta property="og:site_name" content="Yx&#39;s Note"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Yx&#39;s Note" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Yx&#39;s Note</a></h1>
+  <h2><a href="/">一个三心二意的人</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-05-07T12:30:57.000Z"><a href="/2014/05/07/Android color相关/">5月 7 2014</a></time>
+      
+      
+  
+    <h1 class="title">Android color相关</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Android中使用4个数字来表示颜色，分别是alpha,red,green,blue四个颜色值（ARGB）。每个数值取值0-255，因此一个颜色可以用一个整数来表示。红绿蓝三个值代表了颜色的取值，而alpha代表透明度，0表示颜色完全透明，而此时的RGB是什么取值都不重要了，255表示颜色完全不透明。</p>
+<a id="more"></a>
+
+<p>在Android以下的方式可创建或表示颜色：</p>
+<ol>
+<li><p>使用Color类的常量:</p>
+<pre><code> Int color = Color.BULE; //创建一个蓝色
+</code></pre></li>
+<li><p>如果知道ARGB的取值，可以使用Color类的静态方法argb创建一个颜色:</p>
+<pre><code> Int color ＝ Color.argb(127, 255, 0, 255); //半透明紫色
+</code></pre></li>
+<li><p>使用XML资源文件来表示颜色，这是一个扩展比较好的方式，便于今后可方便修改颜色值:</p>
+<pre><code> &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+ &lt;resources&gt;
+ &lt;color name=&quot;white&quot;&gt;#FFFFFF&lt;/color&gt;&lt;!--白色 --&gt;
+ &lt;/resources&gt;
+</code></pre><p> 定义一个名为mycolor，在代码中引用:</p>
+<pre><code>     Int color = getResources().getColor(R.color.mycolor);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yexiang"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- Duoshuo Comment END -->
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yexiang.me">
+  </form>
+</div>
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 Yx
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
