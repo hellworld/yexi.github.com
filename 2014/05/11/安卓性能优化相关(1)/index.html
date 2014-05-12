@@ -6,7 +6,7 @@
   <title>安卓性能优化相关(1) | Yx&#39;s Note</title>
   <meta name="author" content="Yx">
   
-  <meta name="description" content="为什么需要性能优化:
+  <meta name="description" content="为什么需要性能优化：
 更快的应用响应时间，更少使用CPU资源，更少使用内存。目的：提供更好的用户体验!">
   
   
@@ -60,13 +60,13 @@
     </header>
     <div class="entry">
       
-        <p>为什么需要性能优化:
+        <p>为什么需要性能优化：
 更快的应用响应时间，更少使用CPU资源，更少使用内存。<br>目的：提供更好的用户体验!<br><a id="more"></a></p>
 <p>性能优化技术：  </p>
 <p>1.布局优化：  </p>
-<p>1)抽象布局优化<br>\<include>标签：将布局的公共部分提取出来给其他的layout公用,可以实现布局模块化。<br>使用方法：在xml布局中使用</p>
+<p>1)抽象布局优化<br>include标签：将布局的公共部分提取出来给其他的layout公用,可以实现布局模块化。<br>使用方法：在xml布局中使用</p>
 <pre><code>    &lt;include layout = &quot;@layout/需要引用的布局名称&quot;&gt;&lt;/include&gt;
-</code></pre><p>\<viewstub>标签：同inclide标签一样可以用来引用一个外部布局，不同的是，viewstub引入的布局默认不会扩张，即既不会占用现实也不会占用位置，从而在解析layout时节省cpu和内存。
+</code></pre><p>viewstub标签：同inclide标签一样可以用来引用一个外部布局，不同的是，viewstub引入的布局默认不会扩张，即既不会占用现实也不会占用位置，从而在解析layout时节省cpu和内存。
 使用方法：在xml布局中使用</p>
 <pre><code>    &lt;ViewStub
     android:id=&quot;@+id/viewstub_demo&quot;
@@ -76,7 +76,7 @@
 </code></pre><p>  代码中：</p>
 <pre><code>ViewStub stub = (ViewStub)findViewById(R.id.viewstub_demo);
 stub.inflate();
-</code></pre><p>\<megre>标签：</p>
+</code></pre><p>megre标签：</p>
 <p>2）去除不必要的嵌套和view节点：
 首次不需要使用的节点设置成VIEW.GONE或使用viewstub</p>
 <p>3）减少不必要的inflate</p>
