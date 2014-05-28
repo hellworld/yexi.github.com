@@ -3,15 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android color相关 | Yx&#39;s Note</title>
+  <title>关于Android欢迎界面和两次Back退出 | Yx&#39;s Note</title>
   <meta name="author" content="Yx">
   
-  <meta name="description" content="Android中使用4个数字来表示颜色，分别是alpha,red,green,blue四个颜色值（ARGB）。每个数值取值0-255，因此一个颜色可以用一个整数来表示。红绿蓝三个值代表了颜色的取值，而alpha代表透明度，0表示颜色完全透明，而此时的RGB是什么取值都不重要了，255表示颜色完全不透明。">
+  <meta name="description" content="看到一篇博文不错，正好自己最近也有碰到
+点我">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Android color相关"/>
+  <meta property="og:title" content="关于Android欢迎界面和两次Back退出"/>
   <meta property="og:site_name" content="Yx&#39;s Note"/>
 
   
@@ -49,37 +50,51 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-05-07T12:30:57.000Z"><a href="/2014/05/07/Android color相关/">5月 7 2014</a></time>
+        <time datetime="2014-05-28T15:00:57.000Z"><a href="/2014/05/28/关于Android欢迎界面和两次Back退出/">5月 28 2014</a></time>
       
       
   
-    <h1 class="title">Android color相关</h1>
+    <h1 class="title">关于Android欢迎界面和两次Back退出</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>Android中使用4个数字来表示颜色，分别是alpha,red,green,blue四个颜色值（ARGB）。每个数值取值0-255，因此一个颜色可以用一个整数来表示。红绿蓝三个值代表了颜色的取值，而alpha代表透明度，0表示颜色完全透明，而此时的RGB是什么取值都不重要了，255表示颜色完全不透明。</p>
+        <p>看到一篇博文不错，正好自己最近也有碰到</p>
+<p><a href="http://qichaochen.github.io/android/2014/05/14/android-splash/" target="_blank">点我</a></p>
 <a id="more"></a>
 
-<p>在Android以下的方式可创建或表示颜色：</p>
-<ol>
-<li><p>使用Color类的常量:</p>
-<pre><code> Int color = Color.BULE; //创建一个蓝色
-</code></pre></li>
-<li><p>如果知道ARGB的取值，可以使用Color类的静态方法argb创建一个颜色:</p>
-<pre><code> Int color ＝ Color.argb(127, 255, 0, 255); //半透明紫色
-</code></pre></li>
-<li><p>使用XML资源文件来表示颜色，这是一个扩展比较好的方式，便于今后可方便修改颜色值:</p>
-<pre><code> &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
- &lt;resources&gt;
- &lt;color name=&quot;white&quot;&gt;#FFFFFF&lt;/color&gt;&lt;!--白色 --&gt;
- &lt;/resources&gt;
-</code></pre><p> 定义一个名为mycolor，在代码中引用:</p>
-<pre><code>     Int color = getResources().getColor(R.color.mycolor);
-</code></pre></li>
-</ol>
-
+<p>SplashActivity：功能是在执行显示欢迎界面一定时间（LOADINGTIME决定） 启动主界面MainActivity代码如下：</p>
+<pre><code> private void StartMainActivity() {
+    new Handler().postDelayed(new Runnable() {
+        @Override
+        public void run() {
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            startActivity(intent);
+            SplashActivity.this.finish();
+        }
+    }, LOADING_TIME);
+}
+</code></pre><p>//intent在启动之前要设置一下Activity的标志，具体查看Activity任务栈问题
+intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+就这样问题轻松解决了</p>
+<p>顺便Mark一下，如何在应用程序中“按两次返回键退出程序，并拦截Back键”</p>
+<pre><code>private int mBackKeyPressedCount = 1;
+@Override
+public void onBackPressed() {
+    if (mBackKeyPressedCount == 2){
+        mRequstQueue.cancelAll(this);
+        if (player != null) {
+            player.stop();
+            player = null;
+        }
+        finish();
+    } else {
+        mBackKeyPressedCount++;
+        Toast.makeText(this,&quot;再按一次退出程序&quot;, Toast.LENGTH_SHORT).show();
+    }
+}
+</code></pre>
       
     </div>
     <footer>
