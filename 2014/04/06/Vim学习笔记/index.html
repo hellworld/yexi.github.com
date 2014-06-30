@@ -3,16 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>关于Android欢迎界面和两次Back退出 | Yx&#39;s Note</title>
+  <title>Vim学习笔记 | Yx&#39;s Note</title>
   <meta name="author" content="Yx">
   
-  <meta name="description" content="看到一篇博文不错，正好自己最近也有碰到
-点我">
+  <meta name="description" content="江湖传说Emacs是神的编辑器,Vim是编辑器之神，对于这两个神器，我曾经都很感兴趣想要学习，一经手发现两者的学习曲线陡峭而漫长，无奈自己无法驾驭，于是都放弃了,至今仍停留在对编辑器使用的低水平阶段，今天开始决定每天学习一两个vim命令，感受vim的强大。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="关于Android欢迎界面和两次Back退出"/>
+  <meta property="og:title" content="Vim学习笔记"/>
   <meta property="og:site_name" content="Yx&#39;s Note"/>
 
   
@@ -50,50 +49,37 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-05-28T15:00:57.000Z"><a href="/2014/05/28/关于Android欢迎界面和两次Back退出/">5月 28 2014</a></time>
+        <time datetime="2014-04-06T13:47:57.000Z"><a href="/2014/04/06/Vim学习笔记/">4月 6 2014</a></time>
       
       
   
-    <h1 class="title">关于Android欢迎界面和两次Back退出</h1>
+    <h1 class="title">Vim学习笔记</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>看到一篇博文不错，正好自己最近也有碰到</p>
-<p><a href="http://qichaochen.github.io/android/2014/05/14/android-splash/" target="_blank">点我</a></p>
+        <p>江湖传说Emacs是神的编辑器,Vim是编辑器之神，对于这两个神器，我曾经都很感兴趣想要学习，一经手发现两者的学习曲线陡峭而漫长，无奈自己无法驾驭，于是都放弃了,至今仍停留在对编辑器使用的低水平阶段，今天开始决定每天学习一两个vim命令，感受vim的强大。</p>
 <a id="more"></a>
 
-<p>SplashActivity：功能是在执行显示欢迎界面一定时间（LOADINGTIME决定） 启动主界面MainActivity代码如下：</p>
-<pre><code> private void StartMainActivity() {
-    new Handler().postDelayed(new Runnable() {
-        @Override
-        public void run() {
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-            startActivity(intent);
-            SplashActivity.this.finish();
-        }
-    }, LOADING_TIME);
-}
-</code></pre><p>//intent在启动之前要设置一下Activity的标志，具体查看Activity任务栈问题
-intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-就这样问题轻松解决了</p>
-<p>顺便Mark一下，如何在应用程序中“按两次返回键退出程序，并拦截Back键”</p>
-<pre><code>private int mBackKeyPressedCount = 1;
-@Override
-public void onBackPressed() {
-    if (mBackKeyPressedCount == 2){
-        mRequstQueue.cancelAll(this);
-        if (player != null) {
-            player.stop();
-            player = null;
-        }
-        finish();
-    } else {
-        mBackKeyPressedCount++;
-        Toast.makeText(this,&quot;再按一次退出程序&quot;, Toast.LENGTH_SHORT).show();
-    }
-}
+<pre><code>Normal模式下命令：
+
+基本命令：
+i：Insert模式，按ESC回到Normal模式
+x：删除当前光标所在的一个字符
+dd: 删除当前行，并把删除的行存在剪贴板里
+p： 粘贴剪贴板
+hjkl：h：←  j:↓  k：上   l：↓
+help&lt;command&gt;:  显示相关命令的帮助
+
+插入模式
+a： 在光标后插入
+o： 在当前行前插入一个新行
+cw： 替换从光标所在位置后到一个单词结尾的子图
+
+
+简单的移动光标：
+0： 到头行
 </code></pre>
       
     </div>
@@ -101,11 +87,6 @@ public void onBackPressed() {
       
         
         
-  
-  <div class="tags">
-    <a href="/tags/Android/">Android</a>
-  </div>
-
         
   <div class="addthis addthis_toolbox addthis_default_style">
     
